@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <div>
-      <footer className="footer p-10 bg-base-200 text-base-content">
+      <footer className="footer p-10 bg-base-200 text-base-content rounded-lg">
         <div>
           <div className="flex items-center">
             <img
@@ -10,10 +10,10 @@ const Footer = () => {
               src="https://i.ibb.co/wz9TBM7/s-l1600-removebg-preview.png"
               alt=""
             />
-            <p className="text-lg font-bold">Toy Legend</p>
+            <p className="text-xl font-bold text-center">Toy <br /> Legend</p>
           </div>
           <p>
-            ACME Industries Ltd.
+            Toy legends Ltd.
             <br />
             Providing reliable tech since 1992
           </p>

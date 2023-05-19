@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const NabBar = () => {
   return (
     <div>
@@ -54,8 +56,19 @@ const NabBar = () => {
               </li>
             </ul>
           </div>
-                  <div>
-                  <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+          <div>
+            <Link className="btn btn-ghost normal-case text-xl">
+              <img
+                width="50"
+                height="50"
+                src="https://i.ibb.co/wz9TBM7/s-l1600-removebg-preview.png"
+                alt=""
+              />
+              <p>
+                Toy <br />
+                Legends
+              </p>
+            </Link>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -111,7 +124,7 @@ const NabBar = () => {
               <li>
                 <a className="justify-between">
                   Profile
-                  <span className="badge">New</span>
+                  <span className="badge">Active</span>
                 </a>
               </li>
               <li>
