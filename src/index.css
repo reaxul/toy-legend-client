@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.container{
+.my-container{
     @apply max-w-7xl mx-auto
 }
