@@ -25,11 +25,11 @@ const NabBar = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a>Item 1</a>
+                <a>Home</a>
               </li>
               <li tabIndex={0}>
                 <a className="justify-between">
-                  Parent
+                  Sort by
                   <svg
                     className="fill-current"
                     xmlns="http://www.w3.org/2000/svg"
@@ -42,28 +42,30 @@ const NabBar = () => {
                 </a>
                 <ul className="p-2">
                   <li>
-                    <a>Submenu 1</a>
+                    <a>Ascending</a>
                   </li>
                   <li>
-                    <a>Submenu 2</a>
+                    <a>Descending</a>
                   </li>
                 </ul>
               </li>
               <li>
-                <a>Item 3</a>
+                <a>Blog</a>
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                  <div>
+                  <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+          </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>Item 1</a>
+              <a>Home</a>
             </li>
             <li tabIndex={0}>
               <a>
-                Parent
+                Sort by
                 <svg
                   className="fill-current"
                   xmlns="http://www.w3.org/2000/svg"
@@ -76,20 +78,50 @@ const NabBar = () => {
               </a>
               <ul className="p-2">
                 <li>
-                  <a>Submenu 1</a>
+                  <a>Ascending</a>
                 </li>
                 <li>
-                  <a>Submenu 2</a>
+                  <a>Descending</a>
                 </li>
               </ul>
             </li>
             <li>
-              <a>Item 3</a>
+              <a>Blog</a>
             </li>
           </ul>
         </div>
-        <div className="navbar-end">
-          <a className="btn">Get started</a>
+        <div className="flex-none gap-2 navbar-end">
+          <div className="form-control">
+            <input
+              type="text"
+              placeholder="Search"
+              className="input input-bordered"
+            />
+          </div>
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <a className="justify-between">
+                  Profile
+                  <span className="badge">New</span>
+                </a>
+              </li>
+              <li>
+                <a>Settings</a>
+              </li>
+              <li>
+                <a>Logout</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
