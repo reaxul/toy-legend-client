@@ -27,7 +27,7 @@ const NabBar = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a>Home</a>
+                <Link to='/'>Home</Link>
               </li>
               <li tabIndex={0}>
                 <a className="justify-between">
@@ -58,7 +58,7 @@ const NabBar = () => {
           </div>
           <div>
             <Link className="btn btn-ghost normal-case text-xl">
-              <img
+            <img
                 width="50"
                 height="50"
                 src="https://i.ibb.co/wz9TBM7/s-l1600-removebg-preview.png"
@@ -74,7 +74,7 @@ const NabBar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>Home</a>
+              <Link to='/'>Home</Link>
             </li>
             <li tabIndex={0}>
               <a>
@@ -128,7 +128,10 @@ const NabBar = () => {
                 </a>
               </li>
               <li>
-                <a>Settings</a>
+                <a>My toys</a>
+              </li>
+              <li>
+                <a>Add toy</a>
               </li>
               <li>
                 <a>Logout</a>
