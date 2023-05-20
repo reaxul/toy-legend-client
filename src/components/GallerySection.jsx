@@ -1,28 +1,6 @@
-import React from "react";
 
 const GallerySection = () => {
-  const toyImages = [
-    {
-      id: 1,
-      src: "toy1.jpg",
-      alt: "Toy 1",
-    },
-    {
-      id: 2,
-      src: "toy2.jpg",
-      alt: "Toy 2",
-    },
-    {
-      id: 3,
-      src: "toy3.jpg",
-      alt: "Toy 3",
-    },
-    {
-      id: 4,
-      src: "toy4.jpg",
-      alt: "Toy 4",
-    },
-  ];
+  
 
   return (
     <section className="py-12">

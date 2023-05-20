@@ -1,4 +1,5 @@
 import Banner from "../components/Banner";
+import CategoryTabs from "../components/CategoryTabs";
 import GallerySection from "../components/GallerySection";
 
 
@@ -7,6 +8,7 @@ const Home = () => {
     <div>
           <Banner></Banner>
           <GallerySection></GallerySection>
+          <CategoryTabs></CategoryTabs>
     </div>
   );
 };

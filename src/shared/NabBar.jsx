@@ -52,7 +52,7 @@ const NabBar = () => {
                 </ul>
               </li>
               <li>
-                <a>Blog</a>
+                <Link to='blog'>Blog</Link>
               </li>
             </ul>
           </div>
@@ -99,7 +99,7 @@ const NabBar = () => {
               </ul>
             </li>
             <li>
-              <a>Blog</a>
+              <Link to='/blog'>Blog</Link>
             </li>
           </ul>
         </div>
