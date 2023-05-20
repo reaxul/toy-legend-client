@@ -56,19 +56,20 @@ const NabBar = () => {
               </li>
             </ul>
           </div>
-          <div>
-            <Link className="btn btn-ghost normal-case text-xl">
+          <div className="btn btn-ghost normal-case text-xl mb-5">
+            <Link >
             <img
                 width="50"
                 height="50"
                 src="https://i.ibb.co/wz9TBM7/s-l1600-removebg-preview.png"
                 alt=""
               />
-              <p>
+             
+                      </Link>
+                      <p>
                 Toy <br />
                 Legends
               </p>
-            </Link>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -99,18 +100,15 @@ const NabBar = () => {
               </ul>
             </li>
             <li>
+              <Link to='/all-toys'>All Toys</Link>
+            </li>
+            <li>
               <Link to='/blog'>Blog</Link>
             </li>
           </ul>
         </div>
-        <div className="flex-none gap-2 navbar-end">
-          <div className="form-control">
-            <input
-              type="text"
-              placeholder="Search"
-              className="input input-bordered"
-            />
-          </div>
+        <div className="navbar-end">
+          
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
