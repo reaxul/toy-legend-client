@@ -1,12 +1,16 @@
 import React from 'react';
 import { FaGoogle } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const LoginPage = () => {
+    const handleLogin = event => {
+        event.preventDefault();
+    }
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-900">
       <div className="max-w-md w-full p-6 bg-gray-800 shadow-lg rounded-lg">
         <h2 className="text-2xl font-bold mb-4 text-white">Login</h2>
-        <form className="space-y-4">
+        <form onSubmit={handleLogin} className="space-y-4">
           <div>
             <label htmlFor="email" className="block mb-1 font-medium text-white">Email</label>
             <input
@@ -38,7 +42,7 @@ const LoginPage = () => {
             <button className="p-2 bg-blue-500 rounded-full text-white hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
               <FaGoogle className="h-5 w-5" />
             </button>
-            <a href="/registration" className="p-2 bg-blue-500 rounded-full text-white hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Register</a>
+            <Link to="/register" className="p-2 bg-blue-500 rounded-full text-white hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Register</Link>
           </div>
         </div>
       </div>
