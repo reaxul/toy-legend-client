@@ -31,7 +31,7 @@ const LoginPage = () => {
       <div className="max-w-md w-full p-6 bg-gray-800 shadow-lg rounded-lg">
               <h2 className="text-2xl font-bold mb-4 text-white">Login</h2>
               {error && (
-          <div className="bg-red-500 text-white p-3 rounded-md mb-4">
+          <div className="text-red-500 mb-4">
             {error}
           </div>
         )}

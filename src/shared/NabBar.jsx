@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const NabBar = () => {
+  const { user } = useContext(AuthContext);
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -27,7 +30,7 @@ const NabBar = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link to='/'>Home</Link>
+                <Link to="/">Home</Link>
               </li>
               <li tabIndex={0}>
                 <a className="justify-between">
@@ -52,30 +55,29 @@ const NabBar = () => {
                 </ul>
               </li>
               <li>
-                <Link to='blog'>Blog</Link>
+                <Link to="blog">Blog</Link>
               </li>
             </ul>
           </div>
           <div className="btn btn-ghost normal-case text-xl mb-5">
-            <Link >
-            <img
+            <Link>
+              <img
                 width="50"
                 height="50"
                 src="https://i.ibb.co/wz9TBM7/s-l1600-removebg-preview.png"
                 alt=""
               />
-             
-                      </Link>
-                      <p>
-                Toy <br />
-                Legends
-              </p>
+            </Link>
+            <p>
+              Toy <br />
+              Legends
+            </p>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link to='/'>Home</Link>
+              <Link to="/">Home</Link>
             </li>
             <li tabIndex={0}>
               <a>
@@ -100,42 +102,47 @@ const NabBar = () => {
               </ul>
             </li>
             <li>
-              <Link to='/all-toys'>All Toys</Link>
+              <Link to="/all-toys">All Toys</Link>
             </li>
             <li>
-              <Link to='/blog'>Blog</Link>
+              <Link to="/blog">Blog</Link>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
-          
-          <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-              </div>
-            </label>
-            <ul
-              tabIndex={0}
-              className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">Active</span>
-                </a>
-              </li>
-              <li>
-                <a>My toys</a>
-              </li>
-              <li>
-                <a>Add toy</a>
-              </li>
-              <li>
-                <a>Logout</a>
-              </li>
-            </ul>
-          </div>
+          {user ? (
+            <div className="dropdown dropdown-end">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                </div>
+              </label>
+              <ul
+                tabIndex={0}
+                className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <a className="justify-between">
+                    Profile
+                    <span className="badge">Active</span>
+                  </a>
+                </li>
+                <li>
+                  <a>My toys</a>
+                </li>
+                <li>
+                  <a>Add toy</a>
+                </li>
+                <li>
+                  <a>Logout</a>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <Link to="/login">
+              <button className="btn btn-active btn-ghost">Login</button>
+            </Link>
+          )}
         </div>
       </div>
     </div>
