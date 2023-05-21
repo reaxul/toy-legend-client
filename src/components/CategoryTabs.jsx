@@ -10,8 +10,8 @@ const CategoryTabs = () => {
       <Tabs>
         <TabList>
           <Tab>Marvel</Tab>
-          <Tab>Avengers</Tab>
           <Tab>Star Wars</Tab>
+          <Tab>DC</Tab>
         </TabList>
 
         <TabPanel>{/* Render Marvel action hero toys */}</TabPanel>
