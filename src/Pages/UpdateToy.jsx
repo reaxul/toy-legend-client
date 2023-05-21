@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { RiImageAddFill, RiUserFill, RiMailLine } from "react-icons/ri";
 import { AuthContext } from "../providers/AuthProvider";
 
-const AddToyPage = () => {
+const UpdateToy = () => {
   const { user } = useContext(AuthContext);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -45,7 +45,7 @@ const AddToyPage = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-900">
       <div className="w-full md:max-w-3xl p-6 bg-gray-800 shadow-lg rounded-lg">
-        <h2 className="text-2xl font-bold mb-4 text-white">Add A Toy</h2>
+        <h2 className="text-2xl font-bold mb-4 text-white">Update A Toy</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-4 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-4">
             <div>
@@ -233,7 +233,7 @@ const AddToyPage = () => {
             type="submit"
             className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors duration-300"
           >
-            Add Toy
+            Update Toy
           </button>
         </form>
       </div>
@@ -241,4 +241,4 @@ const AddToyPage = () => {
   );
 };
 
-export default AddToyPage;
+export default UpdateToy;

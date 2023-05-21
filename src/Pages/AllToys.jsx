@@ -1,18 +1,22 @@
 import { useEffect, useState } from "react";
-import ToyRow from "../components/ToyRow";
+
+import AllToyRow from "../components/AllToyRow";
 
 const AllToys = () => {
   const [allToys, setAllToys] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/all-toys")
+    fetch("https://toy-legend-server.vercel.app/all-toys")
       .then((res) => res.json())
       .then((data) => setAllToys(data));
   }, []);
-    const handleSearch = (event) => {
-      event.preventDefault();
-      const searchName = event.target.search.value;
-      const searchedToys = allToys.filter(t => t.name === searchName);
-      setAllToys(searchedToys)
+  if (allToys.length > 20) {
+    setAllToys(allToys.slice(0, 20));
+  }
+  const handleSearch = (event) => {
+    event.preventDefault();
+    const searchName = event.target.search.value;
+    const searchedToys = allToys.filter((t) => t.name === searchName);
+    setAllToys(searchedToys);
   };
   return (
     <div>
@@ -58,7 +62,7 @@ const AllToys = () => {
           </thead>
           <tbody>
             {allToys.map((toy) => (
-              <ToyRow key={toy._id} toyInfo={toy}></ToyRow>
+              <AllToyRow key={toy._id} toyInfo={toy}></AllToyRow>
             ))}
           </tbody>
           <tfoot>

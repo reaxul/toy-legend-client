@@ -10,6 +10,7 @@ import MyToys from "../Pages/MyToys";
 import PrivateRoute from "./PrivateRoute";
 import AllToys from "../Pages/AllToys";
 import ToyDetails from "../Pages/ToyDetails";
+import UpdateToy from "../Pages/UpdateToy";
 
 const router = createBrowserRouter([
   {
@@ -46,7 +47,10 @@ const router = createBrowserRouter([
         }, {
           path: '/details/:id',
           element: <PrivateRoute><ToyDetails></ToyDetails></PrivateRoute>,
-            loader:({params})=>fetch(`http://localhost:5000/details/${params.id}`)
+            loader:({params})=>fetch(`https://toy-legend-server.vercel.app/details/${params.id}`)
+        }, {
+          path: '/update-toy',
+            element: <PrivateRoute><UpdateToy></UpdateToy></PrivateRoute>
       }
     ],
   },

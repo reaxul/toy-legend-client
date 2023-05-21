@@ -1,9 +1,13 @@
-
+import Aos from "aos";
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 const GallerySection = () => {
   
-
+    useEffect(() => {
+        Aos.init();
+    })
   return (
-    <section className="py-12">
+    <section className="py-12" data-aos='fade-right'>
       <h2 className="text-3xl text-center font-bold mb-8">
         Explore our Action Figure Toys
       </h2>

@@ -90,28 +90,7 @@ const NabBar = () => {
             <li>
               <Link to="/">Home</Link>
             </li>
-            <li tabIndex={0}>
-              <a>
-                Sort by
-                <svg
-                  className="fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                </svg>
-              </a>
-              <ul className="p-2">
-                <li>
-                  <a>Ascending</a>
-                </li>
-                <li>
-                  <a>Descending</a>
-                </li>
-              </ul>
-            </li>
+
             <li>
               <Link to="/all-toys">All Toys</Link>
             </li>
@@ -125,7 +104,16 @@ const NabBar = () => {
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
-                  <img src={user.photoURL?user.photoURL:<FaRegUserCircle></FaRegUserCircle>} title={user?.displayName} />
+                  <img
+                    src={
+                      user.photoURL ? (
+                        user.photoURL
+                      ) : (
+                        <FaRegUserCircle></FaRegUserCircle>
+                      )
+                    }
+                    title={user?.displayName}
+                  />
                 </div>
               </label>
               <ul
