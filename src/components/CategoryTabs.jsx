@@ -1,11 +1,19 @@
+import { useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import CategoryCard from "./CategoryCard";
 
 const CategoryTabs = () => {
+  const [allToys, setAllToys] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/all-toys")
+      .then((res) => res.json())
+      .then((data) => setAllToys(data));
+  }, []);
   return (
-      <div className="mt-10">
-          <h2 className="text-3xl text-center font-bold mb-8">
-          Unleash Your Inner Hero: Action Figure Toy Collection
+    <div className="mt-10">
+      <h2 className="text-3xl text-center font-bold mb-8">
+        Unleash Your Inner Hero: Action Figure Toy Collection
       </h2>
       <Tabs>
         <TabList>
@@ -14,9 +22,29 @@ const CategoryTabs = () => {
           <Tab>DC</Tab>
         </TabList>
 
-        <TabPanel>{/* Render Marvel action hero toys */}</TabPanel>
-        <TabPanel>{/* Render Avengers action hero toys */}</TabPanel>
-        <TabPanel>{/* Render Star Wars action hero toys */}</TabPanel>
+        <TabPanel>
+          <div className='grid sm:grid-cols-2 md:grid-cols-3'>
+            {allToys
+              .filter((toy) => toy.subcategory === "Marvel")
+              .map((toy) => (
+                <CategoryCard key={toy._id} toy={toy}></CategoryCard>
+              ))}
+          </div>
+        </TabPanel>
+        <TabPanel><div className='grid sm:grid-cols-2 md:grid-cols-3'>
+            {allToys
+              .filter((toy) => toy.subcategory === "Star Wars")
+              .map((toy) => (
+                <CategoryCard key={toy._id} toy={toy}></CategoryCard>
+              ))}
+          </div></TabPanel>
+        <TabPanel><div className='grid sm:grid-cols-2 md:grid-cols-3'>
+            {allToys
+              .filter((toy) => toy.subcategory === "DC")
+              .map((toy) => (
+                <CategoryCard key={toy._id} toy={toy}></CategoryCard>
+              ))}
+          </div></TabPanel>
       </Tabs>
     </div>
   );

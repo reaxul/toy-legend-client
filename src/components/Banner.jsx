@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Banner = () => {
   return (
     <section className="bg-gray-900 py-12 rounded-md">
@@ -10,9 +12,9 @@ const Banner = () => {
             Explore a wide range of action figure toys from your favorite
             franchises
           </p>
-          <button className="bg-red-500 text-white px-6 py-2 mt-6 rounded-lg hover:bg-red-600">
+        <Link to={'/all-toys'}>  <button className="bg-red-500 text-white px-6 py-2 mt-6 rounded-lg hover:bg-red-600">
             Shop Now
-          </button>
+          </button></Link>
         </div>
       </div>
       {/* carousel section  */}
