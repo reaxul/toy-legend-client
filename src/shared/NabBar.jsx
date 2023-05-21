@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import { FaRegUserCircle } from "react-icons/fa";
 
 const NabBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -124,7 +125,7 @@ const NabBar = () => {
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
-                  <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                  <img src={user.photoURL?user.photoURL:<FaRegUserCircle></FaRegUserCircle>} />
                 </div>
               </label>
               <ul

@@ -11,7 +11,7 @@ const CategoryTabs = () => {
       .then((data) => setAllToys(data));
   }, []);
   return (
-    <div className="mt-10">
+    <div className="mt-10 rounded-lg border-t-2 pt-5 border-b-2">
       <h2 className="text-3xl text-center font-bold mb-8">
         Unleash Your Inner Hero: Action Figure Toy Collection
       </h2>

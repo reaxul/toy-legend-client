@@ -11,7 +11,7 @@ const SubscribeSection = () => {
   };
 
   return (
-    <div className="bg-gray-800 py-10 items-center flex justify-center text-center rounded-xl my-10">
+    <div className="border  py-10 items-center flex justify-center text-center rounded-xl my-10">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-white mb-4">
           Subscribe to Our Newsletter
