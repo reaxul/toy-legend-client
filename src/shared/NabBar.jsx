@@ -3,7 +3,14 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 
 const NabBar = () => {
-  const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => { 
+        logOut()
+            .then(() => { })
+            .catch((error) => { 
+                console.log(error);
+            })
+    }
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -134,7 +141,7 @@ const NabBar = () => {
                   <Link to='/add-toy'>Add toy</Link>
                 </li>
                 <li>
-                  <a>Logout</a>
+                  <Link onClick={handleLogOut}>Logout</Link>
                 </li>
               </ul>
             </div>
