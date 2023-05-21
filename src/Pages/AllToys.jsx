@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 
 import AllToyRow from "../components/AllToyRow";
+import useTitle from "../hooks/useTitle";
 
 const AllToys = () => {
+  useTitle('All-Toys')
   const [allToys, setAllToys] = useState([]);
   useEffect(() => {
     fetch("https://toy-legend-server.vercel.app/all-toys")

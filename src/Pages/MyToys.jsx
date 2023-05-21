@@ -13,40 +13,58 @@ const MyToys = () => {
         setMyToys(data);
       });
   }, [URL]);
-    
-  const handleDelete = id => {
-    const proceed = confirm('Are you sure you want to delete');
+
+  const handleDelete = (id) => {
+    const proceed = confirm("Are you sure you want to delete");
     if (proceed) {
-        fetch(`https://toy-legend-server.vercel.app/my-toys/${id}`, {
-            method: 'DELETE',
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.deletedCount > 0) {
-                    alert('delete completed successfully');
-                    const remaining = myToys.filter(t => t._id !== id);
-                    setMyToys(remaining)
-                }
-        })
+      fetch(`https://toy-legend-server.vercel.app/my-toys/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount > 0) {
+            alert("delete completed successfully");
+            const remaining = myToys.filter((t) => t._id !== id);
+            setMyToys(remaining);
+          }
+        });
     }
-    }
-    const handleUpdate = (id, toyInfo) => { 
-        fetch(`https://toy-legend-server.vercel.app/my-toys/${id}`, {
-            method: 'PATCH',
-            body: JSON.stringify(toyInfo)
-        })
-            .then(res => res.json())
-            .then(data => { 
-                console.log(data);
-                if (data.modifiedCount > 0) {
-                    //update
-                }
-            })
-    }
+  };
+  const handleUpdate = (id, toyInfo) => {
+    fetch(`https://toy-legend-server.vercel.app/my-toys/${id}`, {
+      method: "PATCH",
+      body: JSON.stringify(toyInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          //update
+        }
+      });
+  };
   return (
     <div>
-      <h3>Total : {myToys.length}</h3>
+      <div className="flex justify-between">
+        <h3>Total : {myToys.length}</h3>
+        <div className="dropdown dropdown-end">
+          <label tabIndex={0} className="btn m-1">
+            Sort By
+          </label>
+          <ul
+            tabIndex={0}
+            className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            <li>
+              <a>Ascending</a>
+            </li>
+            <li>
+              <a>Descending</a>
+            </li>
+          </ul>
+        </div>
+      </div>
       <div className="overflow-x-auto mb-10">
         <table className="table table-compact w-full">
           <thead>
@@ -64,7 +82,12 @@ const MyToys = () => {
           </thead>
           <tbody>
             {myToys.map((toy) => (
-              <ToyRow key={toy._id} toyInfo={toy} handleDelete={handleDelete} handleUpdate={handleUpdate}></ToyRow>
+              <ToyRow
+                key={toy._id}
+                toyInfo={toy}
+                handleDelete={handleDelete}
+                handleUpdate={handleUpdate}
+              ></ToyRow>
             ))}
           </tbody>
           <tfoot>

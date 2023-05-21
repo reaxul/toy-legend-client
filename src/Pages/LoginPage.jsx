@@ -2,12 +2,14 @@ import { useContext, useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import useTitle from "../hooks/useTitle";
 
 const LoginPage = () => {
     const [error, setError] = useState(null)
     const { signIn, googleSignIn } = useContext(AuthContext)
     const location = useLocation()
-    const navigate=useNavigate()
+  const navigate = useNavigate()
+  useTitle('Login')
     const from = location.state?.from?.pathname || '/'
   const handleLogin = (event) => {
       event.preventDefault();

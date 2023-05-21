@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import { RiImageAddFill, RiUserFill, RiMailLine } from "react-icons/ri";
 import { AuthContext } from "../providers/AuthProvider";
+import useTitle from "../hooks/useTitle";
 
 const AddToyPage = () => {
+  useTitle('Add-A-Toy')
   const { user } = useContext(AuthContext);
   const handleSubmit = (e) => {
     e.preventDefault();

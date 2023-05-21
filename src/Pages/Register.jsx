@@ -7,10 +7,12 @@ import {
   RiImageAddFill,
 } from "react-icons/ri";
 import { AuthContext } from "../providers/AuthProvider";
+import useTitle from "../hooks/useTitle";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
   const [error, setError] = useState(null);
+  useTitle('Register')
   const handleSignUp = (event) => {
     event.preventDefault();
     const form = event.target;

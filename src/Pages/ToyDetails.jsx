@@ -1,7 +1,9 @@
 import { useLoaderData } from "react-router-dom";
 import { FaUser, FaEnvelope, FaDollarSign, FaStar, FaBox } from 'react-icons/fa';
+import useTitle from "../hooks/useTitle";
 
 const ToyDetails = () => {
+  useTitle('Toy-Details');
     const toy = useLoaderData();
   return (
 
