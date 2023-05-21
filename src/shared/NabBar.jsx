@@ -135,7 +135,7 @@ const NabBar = () => {
                   </a>
                 </li>
                 <li>
-                  <a>My toys</a>
+                  <Link to='/my-toys'>My toys</Link>
                 </li>
                 <li>
                   <Link to='/add-toy'>Add toy</Link>

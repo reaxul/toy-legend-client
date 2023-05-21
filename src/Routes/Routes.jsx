@@ -6,30 +6,40 @@ import LoginPage from "../Pages/LoginPage";
 import Register from "../Pages/Register";
 import AddToyPage from "../Pages/AddToyPage";
 import ErrorPage from "../Pages/ErrorPage";
+import MyToys from "../Pages/MyToys";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
-    {
+  {
+    path: "/",
+    errorElement: <ErrorPage></ErrorPage>,
+    element: <Main></Main>,
+    children: [
+      {
         path: "/",
-        errorElement:<ErrorPage></ErrorPage>,
-        element: <Main></Main>,
-        children: [
-            {
-                path: "/",
-                element:<Home></Home>
-            }, {
-                path: '/blog',
-                element:<BlogPage></BlogPage>
-            }, {
-                path: '/login',
-                element:<LoginPage></LoginPage>
-            }, {
-                path: '/register',
-                element:<Register></Register>
-            }, {
-              path:'/add-toy',
-              element:<AddToyPage></AddToyPage>
-          }
-      ]
-    },
+        element: <Home></Home>,
+      },
+      {
+        path: "/blog",
+        element: <BlogPage></BlogPage>,
+      },
+      {
+        path: "/login",
+        element: <LoginPage></LoginPage>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/add-toy",
+        element: <PrivateRoute><AddToyPage></AddToyPage></PrivateRoute>,
+      },
+      {
+        path: "/my-toys",
+        element: <PrivateRoute><MyToys></MyToys></PrivateRoute>,
+      },
+    ],
+  },
 ]);
-  export default router;
+export default router;
