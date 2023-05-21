@@ -5,7 +5,7 @@ import { AuthContext } from "../providers/AuthProvider";
 
 const LoginPage = () => {
     const [error, setError] = useState(null)
-    const {signIn}=useContext(AuthContext)
+    const {signIn,googleSignIn}=useContext(AuthContext)
   const handleLogin = (event) => {
       event.preventDefault();
       const form = event.target;
@@ -25,7 +25,14 @@ const LoginPage = () => {
           const errorMessage = error.message;
           setError(errorMessage);
       });
-  };
+    };
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            }).catch((error) => { setError(error.message); });
+    }
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-900">
       <div className="max-w-md w-full p-6 bg-gray-800 shadow-lg rounded-lg">
@@ -76,7 +83,7 @@ const LoginPage = () => {
         <div className="mt-4">
           <p className="text-center text-gray-300">Or sign in with</p>
           <div className="flex justify-center mt-2 space-x-2">
-            <button className="p-2 bg-blue-500 rounded-full text-white hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
+            <button onClick={handleGoogleSignIn} className="p-2 bg-blue-500 rounded-full text-white hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
               <FaGoogle className="h-5 w-5" />
             </button>
             <Link
