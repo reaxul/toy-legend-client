@@ -3,16 +3,17 @@ import { AuthContext } from "../providers/AuthProvider";
 import ToyRow from "../components/ToyRow";
 
 const MyToys = () => {
+  const [asc,setAsc]=useState(true);
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
-  const URL = `https://toy-legend-server.vercel.app/my-toys?sellerEmail=${user?.email}`;
+  const URL = `https://toy-legend-server.vercel.app/my-toys?sellerEmail=${user?.email}&sort=${asc?'asc':'desc' }`;
   useEffect(() => {
     fetch(URL)
       .then((res) => res.json())
       .then((data) => {
         setMyToys(data);
       });
-  }, [URL]);
+  }, [asc,URL]);
 
   const handleDelete = (id) => {
     const proceed = confirm("Are you sure you want to delete");
@@ -48,22 +49,7 @@ const MyToys = () => {
     <div>
       <div className="flex justify-between">
         <h3>Total : {myToys.length}</h3>
-        <div className="dropdown dropdown-end">
-          <label tabIndex={0} className="btn m-1">
-            Sort By
-          </label>
-          <ul
-            tabIndex={0}
-            className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
-          >
-            <li>
-              <a>Ascending</a>
-            </li>
-            <li>
-              <a>Descending</a>
-            </li>
-          </ul>
-        </div>
+        <button onClick={()=>setAsc(!asc)} className="btn btn-active btn-ghost">{ asc?"Descending":"Ascending"}</button>
       </div>
       <div className="overflow-x-auto mb-10">
         <table className="table table-compact w-full">
