@@ -125,7 +125,7 @@ const NabBar = () => {
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
-                  <img src={user.photoURL?user.photoURL:<FaRegUserCircle></FaRegUserCircle>} />
+                  <img src={user.photoURL?user.photoURL:<FaRegUserCircle></FaRegUserCircle>} title={user?.displayName} />
                 </div>
               </label>
               <ul
