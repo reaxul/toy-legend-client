@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 
 const NabBar = () => {
-    const { user, logOut } = useContext(AuthContext);
-    const handleLogOut = () => { 
-        logOut()
-            .then(() => { })
-            .catch((error) => { 
-                console.log(error);
-            })
-    }
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -60,6 +60,9 @@ const NabBar = () => {
                     <a>Descending</a>
                   </li>
                 </ul>
+              </li>
+              <li>
+                <Link to="/all-toys">All Toys</Link>
               </li>
               <li>
                 <Link to="blog">Blog</Link>
@@ -135,10 +138,10 @@ const NabBar = () => {
                   </a>
                 </li>
                 <li>
-                  <Link to='/my-toys'>My toys</Link>
+                  <Link to="/my-toys">My toys</Link>
                 </li>
                 <li>
-                  <Link to='/add-toy'>Add toy</Link>
+                  <Link to="/add-toy">Add toy</Link>
                 </li>
                 <li>
                   <Link onClick={handleLogOut}>Logout</Link>

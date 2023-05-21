@@ -15,7 +15,7 @@ const MyToys = () => {
   }, []);
   return (
     <div>
-      <h3>My toys: {myToys.length}</h3>
+      <h3>Total : {myToys.length}</h3>
       <div className="overflow-x-auto mb-10">
         <table className="table table-compact w-full">
           <thead>
